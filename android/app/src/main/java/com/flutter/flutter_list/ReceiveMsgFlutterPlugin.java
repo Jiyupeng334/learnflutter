@@ -46,7 +46,7 @@ public class ReceiveMsgFlutterPlugin implements MethodChannel.MethodCallHandler 
                     Map<String,String> map=methodCall.arguments();
                     String str=map.get("flutter");
                     //或者这样获取参数   methodCall.argument("flutter");
-                    Toast.makeText(mActivity,"receive message"+str,Toast.LENGTH_LONG).show();
+                    Log.d("tag",str);
                     result.success("getAragums--success");//返回flutter的值
                     break;
                 case "jump":

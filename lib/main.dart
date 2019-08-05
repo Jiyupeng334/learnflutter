@@ -1,5 +1,16 @@
 import 'package:flutter/material.dart';
-import 'interact_android.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_list/platform/interact_android.dart';
+import 'package:flutter_list/anim/Anim1.dart';
+import 'widget/widget1.dart';
+import 'widget/listviewtest.dart';
+import 'widget/appbar_bottom.dart';
+import 'customPainter/toly_canvas.dart';
+import 'customPainter/test.dart';
+import 'anim/flutter_text.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'function/localizations/localization_test.dart';
+import 'function/localizations/Translations.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,7 +32,17 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Interact(),
+      home: LocalizationTest(),
+      localizationsDelegates: [
+        const TranslationsDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale("en",'US'),
+        const Locale("fr",'CA'),
+        const Locale("zh",'CN'),
+      ],
     );
   }
 }
@@ -46,6 +67,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  bool isTrue=false;
 
   void _incrementCounter() {
     setState(() {
@@ -99,6 +121,15 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            Container(
+              color: Colors.green,
+              child: CupertinoSwitch(value: isTrue, onChanged: (value){
+                setState(() {
+                  isTrue=value;
+                });
+              },
+              )
+              )
           ],
         ),
       ),
