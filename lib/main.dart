@@ -6,11 +6,18 @@ import 'widget/widget1.dart';
 import 'widget/listviewtest.dart';
 import 'widget/appbar_bottom.dart';
 import 'customPainter/toly_canvas.dart';
-import 'customPainter/test.dart';
+import 'customPainter/gestureDetector_test.dart';
 import 'anim/flutter_text.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'function/localizations/localization_test.dart';
 import 'function/localizations/Translations.dart';
+import 'function/back_to_home.dart';
+import 'platform/textView.dart';
+import 'platform/text_test.dart';
+import 'customPainter/customlayout/export.dart';
+import 'customPainter/loveWidget.dart';
+
+import 'packageWidget.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,7 +39,6 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: LocalizationTest(),
       localizationsDelegates: [
         const TranslationsDelegate(),
         GlobalMaterialLocalizations.delegate,
@@ -43,7 +49,12 @@ class MyApp extends StatelessWidget {
         const Locale("fr",'CA'),
         const Locale("zh",'CN'),
       ],
+      home: LoveWidget(),
     );
+  }
+
+  void _onTextViewCreated(TextViewController controller) {
+
   }
 }
 

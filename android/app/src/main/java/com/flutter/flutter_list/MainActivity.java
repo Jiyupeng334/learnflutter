@@ -2,6 +2,7 @@ package com.flutter.flutter_list;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
+import io.flutter.plugin.platform.PlatformViewRegistry;
 import io.flutter.plugins.GeneratedPluginRegistrant;
 
 public class MainActivity extends FlutterActivity {
@@ -16,5 +17,6 @@ public class MainActivity extends FlutterActivity {
 
   private void registReceiveMsgFromFlutter() {
     ReceiveMsgFlutterPlugin.registReceiveMsgPlugin(this.registrarFor(ReceiveMsgFlutterPlugin.CHANNEL));
+    TextViewPlugin.registReceiveMsgPlugin(this.registrarFor("plugins.felix.angelov/textview"));
   }
 }
